@@ -1,0 +1,77 @@
+[
+    {
+        "title": "Team",
+        "content": "Fakers (Mixed)",
+        "answerType": "Short"
+    },
+    {
+        "title": "How should we refer to you on the field",
+        "content": "Pete",
+        "answerType": "Short"
+    },
+    {
+        "title": "Spell your name how it sounds",
+        "content": "Fuller",
+        "answerType": "Short"
+    },
+    {
+        "title": "Current city/town",
+        "content": "Berlin",
+        "answerType": "Short"
+    },
+    {
+        "title": "Home city/town",
+        "content": "Stuttgart",
+        "answerType": "Short"
+    },
+    {
+        "title": "Occupation ",
+        "content": "Engineer",
+        "answerType": "Short"
+    },
+    {
+        "title": "Age ",
+        "content": "31",
+        "answerType": "Short"
+    },
+    {
+        "title": "Height",
+        "content": "185cm",
+        "answerType": "Short"
+    },
+    {
+        "title": "Throwing hand",
+        "content": "Right handed",
+        "answerType": "Short"
+    },
+    {
+        "title": "Why did you start playing Ultimate?",
+        "content": "My brother played at school and taught me how to play in the holidays. Soon we were doing it every weekend and I loved every minute. ",
+        "answerType": "Long"
+    },
+    {
+        "title": "How many years have you been playing?",
+        "content": "6",
+        "answerType": "Short"
+    },
+    {
+        "title": "Which school/university team(s) have you played for?",
+        "content": "Big Town School",
+        "answerType": "Long"
+    },
+    {
+        "title": "Which club team(s) have you played for? ",
+        "content": "Big Town Heros",
+        "answerType": "Long"
+    },
+    {
+        "title": "Which national team(s) have you played for?",
+        "content": "Germany Mixed Beach (2018) Germany Indoor (2017)",
+        "answerType": "Long"
+    },
+    {
+        "title": "What has been the highlight of your Ultimate playing career? ",
+        "content": "Winning the national title with Big Town Heros",
+        "answerType": "Long"
+    }
+]

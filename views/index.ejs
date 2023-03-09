@@ -1,3 +1,147 @@
 <%- include ('./partials/head') %>
 
+<%- data.gameStatus %>
+<%- data.division %>
+<thead%- data.field %>
+
+<main>
+    <!-- Team info -->
+    <section class="team-info">
+        <div class="team flex-default">
+            <!-- Flag based on Olympic Code -->
+            <img src="https://flagsapi.com/<%- data.team1CountryISO2Code %>/flat/64.png" alt="Flag of <%- data.team1CountryName %>">
+
+            <!-- Info about team such as name and olympic code -->
+            <div class="team-desc">
+                <h2 class="teamName"><%- data.team1Name %></h2>
+                <h3 class="teamCountry">(<%- data.team1CountryOlympicCode %>)</h3>
+            </div>
+        </div>
+        <div class="score">
+            <h2 class="gameScore"><%- parsedStats.team1Score %> - <%- parsedStats.team2Score %></h2>
+        </div>
+        <div class="team flex-reverse">
+            <!-- Flag based on Olympic Code -->
+            <img src="https://flagsapi.com/<%- data.team2CountryISO2Code %>/flat/64.png" alt="Flag of <%- data.team2CountryName %>">
+
+            <!-- Info about team such as name and olympic code -->
+            <div class="team-desc">
+                <h2 class="teamName"><%- data.team2Name %></h2>
+                <h3 class="teamCountry">(<%- data.team2CountryOlympicCode %>)</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats">
+        <!-- Stats per player team one -->
+        <div class="team-one-players">
+            <!-- Individual player card -->
+
+            <% data.team1Players.forEach(player => { %>
+                <div class="player-card flex-default">
+                    <!-- Left side of card -->
+                    <div class="jerseyNum">
+                        <h2><%- player.jerseyNumber %></h2>
+                    </div>
+    
+                    <!-- Right side of card -->
+                    <div class="player-stats">
+                        <h3><%- player.name %></h3>
+                        <div class="actions">
+                            <div class="goal"><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></div>
+                            <div class="assist"><%- parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length %></div>
+                            <div class="block">
+                                <%- parsedStats.scoredPoints.reduce((count, sp) => {
+                                    if (sp.blockPlayers) { // need to check that there is a blockPlayers object before working on it for backwards compatibility
+                                        return count = count + sp.blockPlayers.filter(bp => bp === player.playerId).length
+                                    } else {
+                                        return count = 0
+                                    }
+                                }, 0); %>
+                            </div>
+                            <div class="turnover">
+                                <%- parsedStats.scoredPoints.reduce((count, sp) => {
+                                    if (sp.turnoverPlayers) { // need to check that there is a turnoverPlayers object before working on it for backwards compatibility
+                                        return count = count + sp.turnoverPlayers.filter(tp => tp === player.playerId).length
+                                    } else {
+                                        return count = 0
+                                    }
+                                }, 0); %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <!-- Score statistics -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pass</th>
+                    <th>Turn</th>
+                    <th>O/D</th>
+                    <th>Score</th>
+                    <th>O/D</th>
+                    <th>Turn</th>
+                    <th>Pass</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>O</td>
+                    <td>1-0</td>
+                    <td>D</td>
+                    <td>0</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Stats per player team two -->
+        <div class="team-two-players">
+            <!-- Individual player card -->
+            <% data.team2Players.forEach(player => { %>
+                <div class="player-card flex-default">
+                    <!-- Left side of card -->
+                    <div class="jerseyNum">
+                        <h2><%- player.jerseyNumber %></h2>
+                    </div>
+    
+                    <!-- Right side of card -->
+                    <div class="player-stats">
+                        <h3><%- player.name %></h3>
+                        <div class="actions">
+                            <div class="goal"><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></div>
+                            <div class="assist"><%- parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length %></div>
+                            <div class="block">
+                                <%- parsedStats.scoredPoints.reduce((count, sp) => {
+                                    if (sp.blockPlayers) { // need to check that there is a blockPlayers object before working on it for backwards compatibility
+                                        return count = count + sp.blockPlayers.filter(bp => bp === player.playerId).length
+                                    } else {
+                                        return count = 0
+                                    }
+                                }, 0); %>
+                            </div>
+                            <div class="turnover">
+                                <%- parsedStats.scoredPoints.reduce((count, sp) => {
+                                    if (sp.turnoverPlayers) { // need to check that there is a turnoverPlayers object before working on it for backwards compatibility
+                                        return count = count + sp.turnoverPlayers.filter(tp => tp === player.playerId).length
+                                    } else {
+                                        return count = 0
+                                    }
+                                }, 0); %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </section>
+</main>
+
 <%- include ('./partials/footer') %>

@@ -1,0 +1,224 @@
+{
+    "gameId": 943,
+    "url": null,
+    "field": "New Street Mega Bowl",
+    "broadcaster": "Azure User Group",
+    "division": "Mixed",
+    "gameStatus": "Grand Final",
+    "reference": null,
+    "playByPlayCommentatorId": "87ea4414-c3c8-4d8a-0319-08d6c90fc1cb",
+    "playByPlayCommentatorName": "Tom Styles",
+    "playByPlayCommentatorTwitter": "tomstyles",
+    "colourCommentatorId": "36023f3a-c4ac-434c-17f0-08d6c911cc83",
+    "colourCommentatorName": "Brian Toye",
+    "colourCommentatorTwitter": null,
+    "team1Name": "Fakers",
+    "team1TeamId": 529,
+    "team1Seeding": 1,
+    "team1CountryName": "Netherlands",
+    "team1CountryISO2Code": "NL",
+    "team1CountryISO3Code": "NLD",
+    "team1CountryOlympicCode": "NED",
+    "team1Players": [
+        {
+            "playerId": 8600,
+            "name": "Jon Smith",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 1,
+            "hasInformation": false
+        },
+        {
+            "playerId": 8601,
+            "name": "Tom Smith",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 2,
+            "hasInformation": false
+        },
+        {
+            "playerId": 8602,
+            "name": "Kathryn McKay",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 3,
+            "hasInformation": true
+        },
+        {
+            "playerId": 8603,
+            "name": "Doris Defence ",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 4,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38917,
+            "name": "Mary Matchup",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 13,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38921,
+            "name": "Katerina Kutter",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 14,
+            "hasInformation": false
+        },
+        {
+            "playerId": 17373,
+            "name": "Jeff Fake",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 15,
+            "hasInformation": true
+        },
+        {
+            "playerId": 38920,
+            "name": "Floor Flinginger",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 34,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38918,
+            "name": "Keith Katcher",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 45,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38919,
+            "name": "Dave Deepcut",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 78,
+            "hasInformation": false
+        }
+    ],
+    "team2Name": "Pretend Team",
+    "team2TeamId": 530,
+    "team2Seeding": 2,
+    "team2CountryName": "Australia",
+    "team2CountryISO2Code": "AU",
+    "team2CountryISO3Code": "AUS",
+    "team2CountryOlympicCode": "AUS",
+    "team2Players": [
+        {
+            "playerId": 8604,
+            "name": "Mike Walsh",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 1,
+            "hasInformation": false
+        },
+        {
+            "playerId": 8605,
+            "name": "Louise Lynch",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 6,
+            "hasInformation": false
+        },
+        {
+            "playerId": 8606,
+            "name": "Sharon Swing",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 7,
+            "hasInformation": false
+        },
+        {
+            "playerId": 8607,
+            "name": "Pete Phuller",
+            "gender": "M",
+            "height": null,
+            "pronounced": "Fuller",
+            "pronouns": null,
+            "jerseyNumber": 15,
+            "hasInformation": true
+        },
+        {
+            "playerId": 38924,
+            "name": "Walt de Chad",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 17,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38923,
+            "name": "Inga Injury",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 26,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38926,
+            "name": "Julia Jackit",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 29,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38922,
+            "name": "Fiona  Flick",
+            "gender": "F",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 39,
+            "hasInformation": false
+        },
+        {
+            "playerId": 38925,
+            "name": "Leon Kecksler",
+            "gender": "M",
+            "height": null,
+            "pronounced": null,
+            "pronouns": null,
+            "jerseyNumber": 70,
+            "hasInformation": false
+        }
+    ],
+    "hasStatistics": true
+}
