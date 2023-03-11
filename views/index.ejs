@@ -1,114 +1,51 @@
 <%- include ('./partials/head') %>
 
 <main>
-    <!-- Top info blocks -->
-    <div class="top-info">
-        <!-- Game info -->
-        <section class="game-info component">
-            <p class="primary"><%- data.gameId %></p>
-            <p class="primary"><%- data.gameStatus %></p>
-            <p class="primary"><%- data.division %></p>
-            <p class="primary"><%- data.field %></p>
-            <p class="secondary"><%- data.broadcaster %></p>
-            <p class="secondary"><%- data.playByPlayCommentatorName %></p>
-            <p class="secondary"><%- data.colourCommentatorName %></p>
-        </section>
+    <!-- Game info -->
+    <section class="game-info">
+        <p class="primary-cell"><%- data.gameId %></p>
+        <p class="primary-cell"><%- data.gameStatus %></p>
+        <p class="primary-cell"><%- data.division %></p>
+        <p class="primary-cell"><%- data.broadcaster %></p>
+        <p class="primary-cell"><%- data.field %></p>
+    </section>
 
-        <!-- Center block -->
-        <div class="center-block">
-            <!-- Legend -->
-            <section class="legend component">
-                <p class="green">Goals</p>
-                <p class="blue">Assists</p>
-                <p class="red">Blocks</p>
-                <p class="yellow">Turnovers</p>
-            </section>
+    <!-- Team info -->
+    <section class="team-info">
+        <div class="team">
+            <!-- Flag based on Olympic Code -->
+            <img src="https://flagsapi.com/<%- data.team1CountryISO2Code %>/flat/64.png" alt="Flag of <%- data.team1CountryName %>" width="64">
 
-            <!-- Tab selector -->
-            <section class="tabs component">
-                <p>Points</p>
-                <p>Stats</p>
-                <p>Config</p>
-            </section>
+            <!-- Info about team such as name and olympic code -->
+            <div class="team-desc">
+                <p class="team-name"><%- data.team1Name %></p>
+                <p class="team-country">(<%- data.team1CountryOlympicCode %>)</p>
+            </div>
         </div>
-
-        <!-- Team info -->
-        <section class="team-info component">
-            <div class="team">
-                <!-- Flag based on Olympic Code -->
-                <img src="https://flagsapi.com/<%- data.team1CountryISO2Code %>/flat/64.png" alt="Flag of <%- data.team1CountryName %>">
-
-                <!-- Info about team such as name and olympic code -->
-                <div class="team-desc">
-                    <p class="teamName"><%- data.team1Name %></p>
-                    <p class="teamCountry">(<%- data.team1CountryOlympicCode %>)</p>
-                </div>
-            </div>
-            <div class="score">
-                <p class="gameScore"><%- parsedStats.team1Score %> - <%- parsedStats.team2Score %></p>
-            </div>
-            <div class="team">
-                <!-- Flag based on Olympic Code -->
-                <img src="https://flagsapi.com/<%- data.team2CountryISO2Code %>/flat/64.png" alt="Flag of <%- data.team2CountryName %>">
-
-                <!-- Info about team such as name and olympic code -->
-                <div class="team-desc">
-                    <p class="teamName"><%- data.team2Name %></p>
-                    <p class="teamCountry">(<%- data.team2CountryOlympicCode %>)</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Statistics -->
-    <section class="stats">
-        <!-- Stats per player team one -->
-        <div class="team-one-players component">
-            <!-- Individual player card -->
-
-            <% data.team1Players.forEach(player => { %>
-                <div class="player-card flex-default">
-                    <!-- Left side of card -->
-                    <div class="jerseyNum">
-                        <p><%- player.jerseyNumber %></p>
-                    </div>
-    
-                    <!-- Right side of card -->
-                    <div class="player-stats">
-                        <p><%- player.name %></p>
-                        <div class="actions">
-                            <div class="goal"><p><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></p></div>
-                            <div class="assist"><p><%- parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length %></p></div>
-                            <div class="block">
-                                <p>
-                                    <%- parsedStats.scoredPoints.reduce((count, sp) => {
-                                        if (sp.blockPlayers) { // need to check that there is a blockPlayers object before working on it for backwards compatibility
-                                            return count = count + sp.blockPlayers.filter(bp => bp === player.playerId).length
-                                        } else {
-                                            return count = 0
-                                        }
-                                    }, 0); %>
-                                </p>
-                            </div>
-                            <div class="turnover">
-                                <p>
-                                    <%- parsedStats.scoredPoints.reduce((count, sp) => {
-                                        if (sp.turnoverPlayers) { // need to check that there is a turnoverPlayers object before working on it for backwards compatibility
-                                            return count = count + sp.turnoverPlayers.filter(tp => tp === player.playerId).length
-                                        } else {
-                                            return count = 0
-                                        }
-                                    }, 0); %>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <% }) %>
+        <div class="score">
+            <p class="game-score"><%- parsedStats.team1Score %> - <%- parsedStats.team2Score %></p>
         </div>
+        <div class="team">
+            <!-- Flag based on Olympic Code -->
+            <img src="https://flagsapi.com/<%- data.team2CountryISO2Code %>/flat/64.png" alt="Flag of <%- data.team2CountryName %>" width="64">
 
-        <!-- Score statistics -->
-    <div class="scoreboard">
+            <!-- Info about team such as name and olympic code -->
+            <div class="team-desc">
+                <p class="team-name"><%- data.team2Name %></p>
+                <p class="team-country">(<%- data.team2CountryOlympicCode %>)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab selector -->
+    <section class="tabs">
+        <p>Points</p>
+        <p>Stats</p>
+        <p>Config</p>
+    </section>
+
+    <!-- Points -->
+    <section class="scoreboard">
         <table>
             <thead>
                 <tr>
@@ -127,9 +64,9 @@
                         <td><%- scoreStat.team1Passes %></td>
                         <td><%- scoreStat.team1Turnovers %></td>
                         <td><%- scoreStat.team1OorD %></td>
-                        <td><%- scoreStat.team1Score %></td>
-                        <td>-</td>
-                        <td><%- scoreStat.team2Score %></td>
+                        <td class="table-score"><%- scoreStat.team1Score %></td>
+                        <td class="table-score">-</td>
+                        <td class="table-score"><%- scoreStat.team2Score %></td>
                         <td><%- scoreStat.team2OorD %></td>
                         <td><%- scoreStat.team2Turnovers %></td>
                         <td><%- scoreStat.team2Passes %></td>
@@ -137,52 +74,39 @@
                 <% }) %>
             </tbody>
         </table>
-    </div>
+    </section>
+
+    <!-- Legend -->
+    <section class="legend">
+        <p class="green legend-cell">Goals</p>
+        <p class="blue legend-cell">Assists</p>
+        <p class="red legend-cell">Blocks</p>
+        <p class="yellow legend-cell">Turnovers</p>
+    </section>
+
+    <!-- Players -->
+    <div class="players">
+        <!-- Stats per player team one -->
+        <section class="team-one-players">
+            <h2 class="team-name-heading"><%- data.team1Name %></h2>
+            
+            <!-- Individual player card -->
+            <% data.team1Players.forEach(player => { %>
+                <%- include ('./partials/playerList', {player: player}) %>
+            <% }) %>
+        </section>
 
         <!-- Stats per player team two -->
-        <div class="team-two-players component">
+        <section class="team-two-players">
+            <h2 class="team-name-heading"><%- data.team2Name %></h2>
+
             <!-- Individual player card -->
             <% data.team2Players.forEach(player => { %>
-                <div class="player-card flex-reversed">
-                    <!-- Left side of card -->
-                    <div class="jerseyNum">
-                        <p><%- player.jerseyNumber %></p>
-                    </div>
-    
-                    <!-- Right side of card -->
-                    <div class="player-stats stats-reversed">
-                        <p><%- player.name %></p>
-                        <div class="actions">
-                            <div class="goal"><p><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></p></div>
-                            <div class="assist"><p><%- parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length %></p></div>
-                            <div class="block">
-                                <p>
-                                    <%- parsedStats.scoredPoints.reduce((count, sp) => {
-                                        if (sp.blockPlayers) { // need to check that there is a blockPlayers object before working on it for backwards compatibility
-                                            return count = count + sp.blockPlayers.filter(bp => bp === player.playerId).length
-                                        } else {
-                                            return count = 0
-                                        }
-                                    }, 0); %>
-                                </p>
-                            </div>
-                            <div class="turnover">
-                                <p>
-                                    <%- parsedStats.scoredPoints.reduce((count, sp) => {
-                                        if (sp.turnoverPlayers) { // need to check that there is a turnoverPlayers object before working on it for backwards compatibility
-                                            return count = count + sp.turnoverPlayers.filter(tp => tp === player.playerId).length
-                                        } else {
-                                            return count = 0
-                                        }
-                                    }, 0); %>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <%- include ('./partials/playerList', {player: player}) %>
             <% }) %>
-        </div>
-    </section>
+        </section>
+    </div>
+
 </main>
 
 <%- include ('./partials/footer') %>
