@@ -27,6 +27,9 @@ app.get('/', async (req, res) => {
         let gameStats = fs.readFileSync(`./public/api/game/${data.gameId}/statistics.json`)
         let parsedStats = JSON.parse(gameStats)
 
+        data.team1CountryISO2Code = data.team1CountryISO2Code.toLowerCase()
+        data.team2CountryISO2Code = data.team2CountryISO2Code.toLowerCase()
+
         res.render('index', {data, parsedStats})
     } else {
         res.render('index', {data})

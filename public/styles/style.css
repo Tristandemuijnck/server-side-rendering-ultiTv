@@ -62,11 +62,14 @@ main{
     display: flex;
     flex-flow: row wrap;
     gap: var(--cell-gap-4);
+    background: var(--card-background);
+    border-radius: var(--border-radius-3);
+    padding: var(--cell-padding-4);
 }
 
 .primary-cell{
     border-radius: var(--border-radius-3);
-    background: var(--card-background);
+    background-color: var(--orange);
     padding: var(--cell-padding-4);
     font-weight: 500;
 }
@@ -88,6 +91,13 @@ main{
     align-items: center;
     padding: var(--cell-padding-4);
     width: 33%;
+    row-gap: 0.8em;
+}
+
+.team-flag{
+    aspect-ratio: 2/1;
+    width: 64px;
+    object-fit: contain;
 }
 
 .team-desc{
@@ -104,12 +114,13 @@ main{
 
 .team-country{
     font-weight: 500;
+    font-size: 0.9em;
 }
 
 .score{
     display: flex;
     align-items: center;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 /* Tabs section */
@@ -158,6 +169,22 @@ main{
 
 .scoreboard tbody tr:nth-child(even){
     background: rgb(205, 203, 203);
+}
+
+.scoreboard tbody tr:first-of-type td:first-of-type{
+    border-top-left-radius: var(--border-radius-3);
+}
+
+.scoreboard tbody tr:first-of-type td:last-of-type{
+    border-top-right-radius: var(--border-radius-3);
+}
+
+.scoreboard tbody tr:last-of-type td:first-of-type{
+    border-bottom-left-radius: var(--border-radius-3);
+}
+
+.scoreboard tbody tr:last-of-type td:last-of-type{
+    border-bottom-right-radius: var(--border-radius-3);
 }
 
 .hold{
@@ -235,14 +262,7 @@ main{
     row-gap: 0.8em;
 }
 
-.team-one-players{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    row-gap: 0.8em;
-}
-
-.team-two-players{
+.team-players{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -258,9 +278,18 @@ main{
     display: flex;
     width: 100%;
     align-items: center;
-    border: solid 1px black;
+    /* border: solid 1px black; */
     border-radius: var(--border-radius-3);
     /* padding: 0.4em; */
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.45);
+}
+
+.player-card:nth-child(even){
+    background: rgb(239, 239, 239);
+}
+
+.player-card:nth-child(odd){
+    background: rgb(204, 204, 204);
 }
 
 .flex-reversed{
@@ -285,6 +314,9 @@ main{
     align-items: center;
     width: 15%;
     padding: 1.1em 0;
+    font-weight: 500;
+    border-top-left-radius: var(--border-radius-3);
+    border-bottom-left-radius: var(--border-radius-3);
 }
 
 .gender-M{
@@ -344,4 +376,101 @@ main{
 .turnover{
     background: var(--yellow);
     color: black;
+}
+
+@media (min-width: 48rem){
+    main{
+        display: grid;
+        grid-template-columns: 1.3fr 1.3fr 1fr 1fr 1fr 1fr; 
+        /* grid-template-rows: 1fr 0.3fr 0.3fr 1fr 1fr 1fr 1fr;  */
+        grid-auto-rows: fit-content(1em);
+        gap: 12px 12px; 
+        grid-template-areas: 
+        "Game-info Game-info Team-info Team-info Team-info Team-info"
+        "Legend Legend Team-info Team-info Team-info Team-info"
+        "Tabs Tabs Team-info Team-info Team-info Team-info"
+        "Scoreboard Scoreboard Scoreboard Scoreboard Scoreboard Scoreboard"
+        "Scoreboard Scoreboard Scoreboard Scoreboard Scoreboard Scoreboard"
+        "Players Players Players Players Players Players"
+        "Players Players Players Players Players Players"; 
+        height: 100vh;
+    }
+
+    /* Game info section */
+    .game-info{
+        grid-area: Game-info;
+        align-content: flex-start;
+    }
+
+    /* Team info section */
+    .team-info{
+        grid-area: Team-info;
+        align-items: center;
+    }
+
+    .team-flag{
+        width: 128px;
+    }
+
+    .team-name{
+        font-size: 1.1em;
+    }
+
+    .score{
+        font-size: 1.5em;
+    }
+
+    /* Legend section */
+    .legend{
+        grid-area: Legend;
+        position: relative;
+        align-content: flex-start;
+    }
+
+    .legend-cell{
+        padding: 0.2em 0.3em;
+    }
+
+    /* Tabs section */
+    .tabs{
+        grid-area: Tabs;
+        width: 100%;
+        align-items: center;
+    }
+
+    /* Scoreboard section */
+    .scoreboard{
+        grid-area: Scoreboard;
+        align-content: flex-start;
+        margin: 0 0 auto 0;
+        padding: 0.8em 1em;
+    }
+
+    /* Player section */
+    .players{
+        grid-area: Players;
+        align-content: flex-start;
+        margin: 0 0 auto 0;
+        flex-direction: row;
+        column-gap: 0.8em;
+    }
+
+    .reverse{
+        text-align: right;
+    }
+
+    .player-name{
+        padding: 0 0.4em 0 0.4em;
+    }
+
+    .flex-reversed{
+        flex-direction: row-reverse;
+    }
+
+    .num-reversed{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: var(--border-radius-3);
+        border-bottom-right-radius: var(--border-radius-3);
+    }
 }
