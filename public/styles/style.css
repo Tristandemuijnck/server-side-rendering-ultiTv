@@ -11,6 +11,10 @@
     --yellow: #FAB617;
     --boy-blue: #6E9FD7;
     --girl-pink: #F8B9D4;
+    --hold-green: #51A653;
+    --break-green: #00DC32;
+    --conceded-red: #AD4D4D;
+    --broken-red: #E9111C;
 
     --border-radius-3: 0.3em;
     --column-gap-6: 0.6em;
@@ -75,6 +79,7 @@ main{
     border-radius: var(--border-radius-3);
     padding: var(--cell-padding-4);
     width: 100%;
+    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.75);
 }
 
 .team{
@@ -153,6 +158,23 @@ main{
 
 .scoreboard tbody tr:nth-child(even){
     background: rgb(205, 203, 203);
+}
+
+.hold{
+    background: var(--hold-green);
+}
+
+.break{
+    background: var(--break-green);
+}
+
+.conceded{
+    background: var(--conceded-red);
+    color: white;
+}
+
+.broken{
+    background: var(--broken-red);
 }
 
 .table-score{
