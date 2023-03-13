@@ -5,10 +5,10 @@ import fs from 'fs'
 // Create a new express app
 const app = express()
 
-let gameData = fs.readFileSync('./public/api/game/943.json')
-let parsedData = JSON.parse(gameData)
-
-// console.log(parsedData)
+// Load json file
+const gameData = fs.readFileSync('./public/api/game/943.json')
+// Parse data to json object
+const parsedData = JSON.parse(gameData)
 
 // Set the view engine of the app to ejs
 app.set('view engine', 'ejs')
@@ -20,8 +20,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', async (req, res) => {
-    let data = parsedData
-    // console.log(data)
+    const data = parsedData
 
     if (data.hasStatistics === true) {
         let gameStats = fs.readFileSync(`./public/api/game/${data.gameId}/statistics.json`)
