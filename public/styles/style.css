@@ -65,6 +65,7 @@ main{
     background: var(--card-background);
     border-radius: var(--border-radius-3);
     padding: var(--cell-padding-4);
+    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.75);
 }
 
 .primary-cell{
@@ -134,6 +135,7 @@ main{
     background: var(--card-background);
     border-radius: var(--border-radius-3);
     padding: var(--cell-padding-4);
+    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.75);
 }
 
 .tabs p{
@@ -148,6 +150,7 @@ main{
     background: var(--card-background);
     border-radius: var(--border-radius-3);
     padding: var(--cell-padding-4);
+    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.75);
 }
 
 .scoreboard table{
@@ -222,6 +225,7 @@ main{
     position: sticky;
     top: 0;
     left: 0;
+    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.75);
 }
 
 .legend-cell{
@@ -260,6 +264,7 @@ main{
     border-radius: var(--border-radius-3);
     padding: 0.8em 0.6em;
     row-gap: 0.8em;
+    box-shadow: 0px 0px 8px -1px rgba(0, 0, 0, 0.75);
 }
 
 .team-players{
@@ -336,6 +341,10 @@ main{
     font-size: 0.9em;
     font-weight: 500;
     padding: 0 0 0 0.4em;
+}
+
+.player-extra-info{
+    text-decoration: underline;
 }
 
 .player-pronounced{

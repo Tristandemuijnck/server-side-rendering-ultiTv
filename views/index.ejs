@@ -151,11 +151,19 @@
                     <div class="player-stats">
                         <% if (player.pronounced !== null) { %>
                             <div class="player-name-container">
-                                <p class="player-name"><%- player.name %></p>
+                                <% if (player.hasInformation) { %>
+                                    <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+                                <% } else {%>
+                                    <p class="player-name"><%- player.name %></p>
+                                <% } %>
                                 <p class="player-pronounced"><%- player.pronounced %></p>
                             </div>
                         <% } else{ %>
-                            <p class="player-name"><%- player.name %></p>
+                            <% if (player.hasInformation) { %>
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+                            <% } else {%>
+                                <p class="player-name"><%- player.name %></p>
+                            <% } %>
                         <% } %>
                         <div class="actions">
                             <p class="goal"><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></p>
@@ -200,11 +208,19 @@
                     <div class="player-stats flex-reversed">
                         <% if (player.pronounced !== null) { %>
                             <div class="player-name-container">
-                                <p class="player-name"><%- player.name %></p>
+                                <% if (player.hasInformation) { %>
+                                    <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+                                <% } else {%>
+                                    <p class="player-name"><%- player.name %></p>
+                                <% } %>
                                 <p class="player-pronounced"><%- player.pronounced %></p>
                             </div>
                         <% } else{ %>
-                            <p class="player-name"><%- player.name %></p>
+                            <% if (player.hasInformation) { %>
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+                            <% } else {%>
+                                <p class="player-name"><%- player.name %></p>
+                            <% } %>
                         <% } %>
                         <div class="actions flex-reversed">
                             <p class="goal"><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></p>
