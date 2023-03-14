@@ -1,5 +1,7 @@
 <%- include ('./partials/head') %>
 
+<%# extraPlayerData[0].id %>
+
 <main>
     <!-- Game info -->
     <section class="game-info">
@@ -153,18 +155,39 @@
                             <div class="player-name-container">
                                 <% if (player.hasInformation) { %>
                                     <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                    <!-- Modal with extra info -->
+                                    <div class="modal" id="modal<%- player.playerId %>">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <p><%- player.name %></p>
+                                        </div>
+                                    </div>
+
                                 <% } else {%>
                                     <p class="player-name"><%- player.name %></p>
                                 <% } %>
                                 <p class="player-pronounced"><%- player.pronounced %></p>
                             </div>
                         <% } else{ %>
-                            <% if (player.hasInformation) { %>
-                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
-                            <% } else {%>
-                                <p class="player-name"><%- player.name %></p>
-                            <% } %>
+                            <div class="player-name-container">
+                                <% if (player.hasInformation) { %>
+                                    <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                    <!-- Modal with extra info -->
+                                    <div class="modal" id="modal<%- player.playerId %>">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <p><%- player.name %></p>
+                                        </div>
+                                    </div>
+                                
+                                    <% } else {%>
+                                    <p class="player-name"><%- player.name %></p>
+                                <% } %>
+                            </div>
                         <% } %>
+
                         <div class="actions">
                             <p class="goal"><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></p>
                             <p class="assist"><%- parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length %></p>
@@ -210,18 +233,39 @@
                             <div class="player-name-container">
                                 <% if (player.hasInformation) { %>
                                     <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                    <!-- Modal with extra info -->
+                                    <div class="modal" id="modal<%- player.playerId %>">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <p><%- player.name %></p>
+                                        </div>
+                                    </div>
+
                                 <% } else {%>
                                     <p class="player-name"><%- player.name %></p>
                                 <% } %>
                                 <p class="player-pronounced"><%- player.pronounced %></p>
                             </div>
                         <% } else{ %>
-                            <% if (player.hasInformation) { %>
-                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
-                            <% } else {%>
-                                <p class="player-name"><%- player.name %></p>
-                            <% } %>
+                            <div class="player-name-container">
+                                <% if (player.hasInformation) { %>
+                                    <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                    <!-- Modal with extra info -->
+                                    <div class="modal" id="modal<%- player.playerId %>">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span>
+                                            <p><%- player.name %></p>
+                                        </div>
+                                    </div>
+
+                                <% } else {%>
+                                    <p class="player-name"><%- player.name %></p>
+                                <% } %>
+                            </div>
                         <% } %>
+
                         <div class="actions flex-reversed">
                             <p class="goal"><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></p>
                             <p class="assist"><%- parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length %></p>
