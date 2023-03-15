@@ -2,7 +2,6 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import path from 'path'
-import { get } from 'http'
 
 // Create a new express app
 const app = express()
@@ -33,12 +32,14 @@ playerExtraData.forEach(file => {
     
     // Add the id to the json object
     parsedFileData.id = playerExtraId
+    // console.log(parsedFileData)
 
     // Add the json object to the data array
     extraPlayerData = [...extraPlayerData, parsedFileData]
+    // console.log(extraPlayerData)
 })
 
-console.log(extraPlayerData)
+//console.log(extraPlayerData)
 
 
 // Set the view engine of the app to ejs
@@ -53,6 +54,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.get('/', async (req, res) => {
     const data = parsedData
 
+    // console.log('game data', data)
+
     if (data.hasStatistics === true) {
         let gameStats = fs.readFileSync(`./public/api/game/${data.gameId}/statistics.json`)
         let parsedStats = JSON.parse(gameStats)
@@ -60,7 +63,20 @@ app.get('/', async (req, res) => {
         data.team1CountryISO2Code = data.team1CountryISO2Code.toLowerCase()
         data.team2CountryISO2Code = data.team2CountryISO2Code.toLowerCase()
 
-        res.render('index', {data, parsedStats, extraPlayerData})
+        // Form met request data
+        const playerId = req.query.playerId
+        console.log(playerId)
+
+        const fileData = fs.readFileSync(`./public/api/facts/Player/${playerId}.json`)
+        const parsedPlayerData = JSON.parse(fileData);
+
+        console.log(parsedPlayerData)
+
+        // loop through playersTeam1
+        // filter on hasInformation
+        // map by id, player.information = extraPlayerData[id]
+
+        res.render('index', {data, parsedStats, parsedPlayerData})
     } else {
         res.render('index', {data})
     }    

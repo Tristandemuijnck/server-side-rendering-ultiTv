@@ -1,7 +1,9 @@
 <%- include ('./partials/head') %>
 
 <%# extraPlayerData[0].id %>
-
+<%
+    const {team1CountryISO2Code, team2CountryISO2Code, team1CountryName} = data
+%>
 <main>
     <!-- Game info -->
     <section class="game-info">
@@ -16,7 +18,7 @@
     <section class="team-info">
         <div class="team">
             <!-- Flag based on Olympic Code -->
-            <img class="team-flag" src="https://flagcdn.com/<%- data.team1CountryISO2Code %>.svg" alt="Flag of <%- data.team1CountryName %>" width="64">
+            <img class="team-flag" src="https://flagcdn.com/<%- team1CountryISO2Code %>.svg" alt="Flag of <%- team1CountryName %>" width="64">
 
             <!-- Info about team such as name and olympic code -->
             <div class="team-desc">
@@ -30,7 +32,7 @@
         </div>
         <div class="team">
             <!-- Flag based on Olympic Code -->
-            <img class="team-flag" src="https://flagcdn.com/<%- data.team2CountryISO2Code %>.svg" alt="Flag of <%- data.team2CountryName %>" width="64">
+            <img class="team-flag" src="https://flagcdn.com/<%- team2CountryISO2Code %>.svg" alt="Flag of <%- data.team2CountryName %>" width="64">
 
             <!-- Info about team such as name and olympic code -->
             <div class="team-desc">
@@ -46,6 +48,7 @@
         <p>Stats</p>
         <p>Config</p>
     </section>
+    <%# include('tabs', {}) %>
 
     <!-- Points -->
     <section class="scoreboard">
@@ -99,26 +102,27 @@
                         <% if (scoreStat.scored === scoreStat.team2Name) { %>
                             <%# If team 2 was on offense during scored point -> hold, which means dark green color %>
                             <% if (scoreStat.team2OorD === "O") { %>
-                                <td class="hold"><%- scoreStat.team2Passes %></td>
-                                <td class="hold"><%- scoreStat.team2Turnovers %></td>
                                 <td class="hold"><%- scoreStat.team2OorD %></td>
+                                <td class="hold"><%- scoreStat.team2Turnovers %></td>
+                                <td class="hold"><%- scoreStat.team2Passes %></td>
+                                
                             <% } else { %>
                             <%# If team 2 was on defence during scored point -> break, which means green color %>
-                                <td class="break"><%- scoreStat.team2Passes %></td>
-                                <td class="break"><%- scoreStat.team2Turnovers %></td>
-                                <td class="break"><%- scoreStat.team2OorD %></td>
+                            <td class="break"><%- scoreStat.team2OorD %></td>
+                            <td class="break"><%- scoreStat.team2Turnovers %></td>
+                            <td class="break"><%- scoreStat.team2Passes %></td>
                             <% } %>
                         <% } else { %>
                             <%# If team 2 was scored on during defence -> conceded, which means dark red color %>
                             <% if (scoreStat.team2OorD === "D") { %>
-                                <td class="conceded"><%- scoreStat.team2Passes %></td>
-                                <td class="conceded"><%- scoreStat.team2Turnovers %></td>
                                 <td class="conceded"><%- scoreStat.team2OorD %></td>
+                                <td class="conceded"><%- scoreStat.team2Turnovers %></td>
+                                <td class="conceded"><%- scoreStat.team2Passes %></td>
                             <% } else { %>
                             <%# If team 2 was scored on during offense -> broken, which means red color %>
-                                <td class="broken"><%- scoreStat.team2Passes %></td>
-                                <td class="broken"><%- scoreStat.team2Turnovers %></td>
-                                <td class="broken"><%- scoreStat.team2OorD %></td>
+                            <td class="broken"><%- scoreStat.team2OorD %></td>
+                            <td class="broken"><%- scoreStat.team2Turnovers %></td>
+                            <td class="broken"><%- scoreStat.team2Passes %></td>
                             <% } %>
                         <% } %>
                     </tr>
@@ -174,11 +178,24 @@
                                 <% if (player.hasInformation) { %>
                                     <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
 
+                                    <!-- Form fetch data per player -->
+
+                                    <form action="/" method="get">
+                                        <input type="number" name="playerId" id="playerId" hidden value="<%- player.playerId %>">
+                                        <input type="submit" value="I">
+                                    </form>
+
                                     <!-- Modal with extra info -->
+                                    
                                     <div class="modal" id="modal<%- player.playerId %>">
                                         <div class="modal-content">
                                             <span class="close">&times;</span>
+                                             <!-- loop through player.information -->
+
                                             <p><%- player.name %></p>
+                                            <% parsedPlayerData.forEach(playerInfo => { %>
+                                                <p><%- playerInfo.title %> - <%- playerInfo.content %></p>
+                                            <% }) %>
                                         </div>
                                     </div>
                                 
