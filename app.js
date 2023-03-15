@@ -64,19 +64,24 @@ app.get('/', async (req, res) => {
         data.team2CountryISO2Code = data.team2CountryISO2Code.toLowerCase()
 
         // Form met request data
-        const playerId = req.query.playerId
-        console.log(playerId)
-
-        const fileData = fs.readFileSync(`./public/api/facts/Player/${playerId}.json`)
-        const parsedPlayerData = JSON.parse(fileData);
-
-        console.log(parsedPlayerData)
+        if (!req.query.playerId) {
+            res.render('index', {data, parsedStats})
+        }else{
+            const playerId = req.query.playerId
+            console.log(playerId)
+    
+            const fileData = fs.readFileSync(`./public/api/facts/Player/${playerId}.json`)
+            const parsedPlayerData = JSON.parse(fileData);
+    
+            console.log(parsedPlayerData)
+            res.render('index', {data, parsedStats, parsedPlayerData})
+        }
+        
 
         // loop through playersTeam1
         // filter on hasInformation
         // map by id, player.information = extraPlayerData[id]
-
-        res.render('index', {data, parsedStats, parsedPlayerData})
+        
     } else {
         res.render('index', {data})
     }    
