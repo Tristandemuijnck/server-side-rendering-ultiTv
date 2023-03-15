@@ -11,37 +11,6 @@ const gameData = fs.readFileSync('./public/api/game/943.json')
 // Parse data to json object
 const parsedData = JSON.parse(gameData)
 
-
-
-// Every JSON file in the player folder
-const playerExtraData = fs.readdirSync('./public/api/facts/Player').filter(file => path.extname(file) === '.json');
-let extraPlayerData= []
-// console.log(playerExtraData)
-
-// Read every file and parse it to json
-playerExtraData.forEach(file => {
-    const fileData = fs.readFileSync(path.join('./public/api/facts/Player/', file))
-    let parsedFileData = JSON.parse(fileData)
-    // console.log(parsedFileData)
-
-    // Get the id of the player based on the json file name
-    let playerExtraId = file.replace('.json', '')
-
-    // Convert the id string to an integer
-    playerExtraId = parseInt(playerExtraId)
-    
-    // Add the id to the json object
-    parsedFileData.id = playerExtraId
-    // console.log(parsedFileData)
-
-    // Add the json object to the data array
-    extraPlayerData = [...extraPlayerData, parsedFileData]
-    // console.log(extraPlayerData)
-})
-
-//console.log(extraPlayerData)
-
-
 // Set the view engine of the app to ejs
 app.set('view engine', 'ejs')
 // Set the location of the views folder
@@ -53,8 +22,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', async (req, res) => {
     const data = parsedData
-
-    // console.log('game data', data)
 
     if (data.hasStatistics === true) {
         let gameStats = fs.readFileSync(`./public/api/game/${data.gameId}/statistics.json`)
@@ -76,12 +43,6 @@ app.get('/', async (req, res) => {
             console.log(parsedPlayerData)
             res.render('index', {data, parsedStats, parsedPlayerData})
         }
-        
-
-        // loop through playersTeam1
-        // filter on hasInformation
-        // map by id, player.information = extraPlayerData[id]
-        
     } else {
         res.render('index', {data})
     }    
