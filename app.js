@@ -1,7 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import fs from 'fs'
-import path from 'path'
 
 // Create a new express app
 const app = express()
@@ -15,22 +14,26 @@ const parsedData = JSON.parse(gameData)
 app.set('view engine', 'ejs')
 // Set the location of the views folder
 app.set('views', './views')
+
 // Set the location of the public folder with static files
 app.use(express.static('public'))
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', async (req, res) => {
     const data = parsedData
 
+    // Check if game has statistics
     if (data.hasStatistics === true) {
         let gameStats = fs.readFileSync(`./public/api/game/${data.gameId}/statistics.json`)
         let parsedStats = JSON.parse(gameStats)
 
+        // Lowercase country codes for flag API
         data.team1CountryISO2Code = data.team1CountryISO2Code.toLowerCase()
         data.team2CountryISO2Code = data.team2CountryISO2Code.toLowerCase()
 
-        // Form met request data
+        // Form with request data
         if (!req.query.playerId) {
             res.render('index', {data, parsedStats})
         }else{

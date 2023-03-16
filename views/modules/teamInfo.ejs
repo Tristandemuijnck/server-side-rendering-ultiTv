@@ -1,0 +1,31 @@
+<%
+    const {team1CountryISO2Code, team2CountryISO2Code, team1CountryName, team2CountryName, team1Name, team2Name, team1CountryOlympicCode, team2CountryOlympicCode, team1Score, team2Score} = data
+%>
+
+<!-- Team info -->
+<section class="team-info">
+    <div class="team">
+        <!-- Flag based on Olympic Code -->
+        <img class="team-flag" src="https://flagcdn.com/<%- team1CountryISO2Code %>.svg" alt="Flag of <%- team1CountryName %>" width="64">
+
+        <!-- Info about team such as name and olympic code -->
+        <div class="team-desc">
+            <p class="team-name"><%- team1Name %></p>
+            <p class="team-country">(<%- team1CountryOlympicCode %>)</p>
+        </div>
+    </div>
+    
+    <div class="score">
+        <p class="game-score"><%- parsedStats.team1Score %> - <%- parsedStats.team2Score %></p>
+    </div>
+    <div class="team">
+        <!-- Flag based on Olympic Code -->
+        <img class="team-flag" src="https://flagcdn.com/<%- team2CountryISO2Code %>.svg" alt="Flag of <%- team2CountryName %>" width="64">
+
+        <!-- Info about team such as name and olympic code -->
+        <div class="team-desc">
+            <p class="team-name"><%- team2Name %></p>
+            <p class="team-country">(<%- team2CountryOlympicCode %>)</p>
+        </div>
+    </div>
+</section>

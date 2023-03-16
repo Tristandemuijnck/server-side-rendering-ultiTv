@@ -1,0 +1,113 @@
+<!-- Stats per player team one -->
+<section class="team-players">
+    <h2 class="team-name-heading"><%- data.team1Name %></h2>
+    
+    <!-- Individual player card -->
+    <% data.team1Players.forEach(player => { %>
+        <div class="player-card">
+            <!-- Left side of card -->
+            <div class="jersey-num gender-<%- player.gender %>">
+                <p><%- player.jerseyNumber %></p>
+            </div>
+        
+            <!-- Right side of card -->
+            <div class="player-stats">
+                <% if (player.pronounced !== null) { %>
+                    <div class="player-name-container">
+                        <% if (player.hasInformation) { %>
+                            <div class="player-name-wrapper">
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                <!-- Form fetch data per player -->
+
+                                <form action="/" method="get" name="player-extra-info-form" class="player-extra-info-form">
+                                    <input type="number" name="playerId" hidden value="<%- player.playerId %>">
+                                    <input type="submit" value="i">
+                                </form>
+                            </div>
+
+                            <!-- Modal with extra info -->
+                            
+                            <div class="modal" id="modal<%- player.playerId %>">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <!-- loop through player.information -->
+                                    <p><%- player.name %></p>
+                                    <% if (typeof parsedPlayerData !== 'undefined') { %>
+                                        <% parsedPlayerData.forEach(playerInfo => { %>
+                                            <p><strong><%- playerInfo.title %></strong> - <%- playerInfo.content %></p>
+                                        <% }) %>
+                                    <% }else{ %>
+                                        <p>No information available</p>
+                                    <% } %>
+                                </div>
+                            </div>
+
+                        <% } else {%>
+                            <p class="player-name"><%- player.name %></p>
+                        <% } %>
+                        <p class="player-pronounced"><%- player.pronounced %></p>
+                    </div>
+                <% } else{ %>
+                    <div class="player-name-container">
+                        <% if (player.hasInformation) { %>
+                            <div class="player-name-wrapper">
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                <!-- Form fetch data per player -->
+
+                                <form action="/" method="get" name="player-extra-info-form" class="player-extra-info-form">
+                                    <input type="number" name="playerId" hidden value="<%- player.playerId %>">
+                                    <input type="submit" value="i">
+                                </form>
+                            </div>
+
+                            <!-- Modal with extra info -->
+                            
+                            <div class="modal" id="modal<%- player.playerId %>">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <!-- loop through player.information -->
+                                    <p><%- player.name %></p>
+                                    <% if (typeof parsedPlayerData !== 'undefined') { %>
+                                        <% parsedPlayerData.forEach(playerInfo => { %>
+                                            <p><strong><%- playerInfo.title %></strong> - <%- playerInfo.content %></p>
+                                        <% }) %>
+                                    <% }else{ %>
+                                        <p>No information available</p>
+                                    <% } %>
+                                </div>
+                            </div>
+                        
+                            <% } else {%>
+                            <p class="player-name"><%- player.name %></p>
+                        <% } %>
+                    </div>
+                <% } %>
+
+                <div class="actions">
+                    <p class="goal"><%- parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length %></p>
+                    <p class="assist"><%- parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length %></p>
+                    <p class="block">
+                        <%- parsedStats.scoredPoints.reduce((count, sp) => {
+                            if (sp.blockPlayers) { // need to check that there is a blockPlayers object before working on it for backwards compatibility
+                                return count = count + sp.blockPlayers.filter(bp => bp === player.playerId).length
+                            } else {
+                                return count = 0
+                            }
+                        }, 0); %>
+                    </p>
+                    <p class="turnover">
+                        <%- parsedStats.scoredPoints.reduce((count, sp) => {
+                            if (sp.turnoverPlayers) { // need to check that there is a turnoverPlayers object before working on it for backwards compatibility
+                                return count = count + sp.turnoverPlayers.filter(tp => tp === player.playerId).length
+                            } else {
+                                return count = 0
+                            }
+                        }, 0); %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</section>

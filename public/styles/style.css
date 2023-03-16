@@ -129,7 +129,7 @@ main{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     gap: var(--cell-gap-8);
     background: var(--card-background);
@@ -286,7 +286,9 @@ main{
     /* border: solid 1px black; */
     border-radius: var(--border-radius-3);
     /* padding: 0.4em; */
+    position: relative;
     box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.45);
+    min-height: 3.5em;
 }
 
 .player-card:nth-child(even){
@@ -307,6 +309,7 @@ main{
     width: 85%;
     justify-content: space-between;
     padding: 0.4em;
+    margin-left: 15%;
 }
 
 .stats-reversed{
@@ -322,6 +325,10 @@ main{
     font-weight: 500;
     border-top-left-radius: var(--border-radius-3);
     border-bottom-left-radius: var(--border-radius-3);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
 }
 
 .gender-M{
@@ -335,6 +342,15 @@ main{
 .player-name-container{
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.player-name-wrapper{
+    display: flex;
+}
+
+.player-name-wrapper-reversed{
+    flex-direction: row;
 }
 
 .player-name{
@@ -345,6 +361,18 @@ main{
 
 .player-extra-info{
     text-decoration: underline;
+}
+
+.player-extra-info-form{
+    /* position: absolute;
+    left: -10px; */
+    display: flex;
+    align-items: center;
+    margin: 0 5px 0 5px;
+}
+
+.player-extra-info-form input[type="submit"]{
+    padding: 0 0.2em;
 }
 
 .modal{
@@ -385,7 +413,7 @@ main{
     font-style: italic;
     color: gray;
     font-weight: 400;
-    padding: 0 0 0 0.4em;
+    padding: 0 0.4em 0 0.4em;
 }
 
 .actions{
@@ -502,12 +530,22 @@ main{
         text-align: right;
     }
 
+    .player-name-container-reversed{
+        align-items: flex-end;
+    }
+
     .player-name{
         padding: 0 0.4em 0 0.4em;
     }
 
+    .player-name-wrapper-reversed{
+        flex-direction: row-reverse;
+    }
+
     .flex-reversed{
         flex-direction: row-reverse;
+        margin-left: 0;
+        margin-right: 15%;
     }
 
     .num-reversed{
