@@ -50,9 +50,21 @@ ExpressJS is een NodeJS framework. Express helpt binnen dit project bij het verw
 
 ## 📥 Installatie
 
+1. Clone of download deze repository naar de gewenste folder.
+2. Open de root directory van dit project en open het project in een code editor naar keuze.
+3. Gebruik ```npm install``` om de benodigde packages te downloaden voor dit project.
+4. Start een server met ```npm run start```. 
+
 ## 🪚 Gebruik
+Deze tool is zowel lokaal te gebruiken als online. Lokaal gebruik is bedoeld voor developers en zorgt ervoor dat er mogelijke verbeteringen kunnen worden toegepast op het project. Online gebruik is bedoeld voor de eindgebruiker.
+
+[UltiTV Commentary Tool](https://indigo-camel-belt.cyclic.app/)
 
 ## 📘 Bronnen
+
+[ExpressJS](https://expressjs.com/en/4x/api.html)
+
+[EJS](https://ejs.co/#docs)
 
 ## 🪪 Licentie
 
