@@ -6,24 +6,24 @@ const extraInfoForm = document.getElementsByClassName("player-extra-info-form")
 
 console.log(extraInfoForm)
 
-for (let a = 0; a < extraInfoForm.length; a++) {
-    console.log(extraInfoForm[a]);
+// for (let a = 0; a < extraInfoForm.length; a++) {
+//     console.log(extraInfoForm[a]);
     
-    extraInfoForm[a].addEventListener("submit", (e) => {
-        // e.preventDefault()
-        modal[a].style.display = "block"
-    })
+//     extraInfoForm[a].addEventListener("submit", (e) => {
+//         // e.preventDefault()
+//         modal[a].style.display = "block"
+//     })
 
-    closeBtn[a].addEventListener("click", () => {
-        modal[a].style.display = "none"
-    })
+//     closeBtn[a].addEventListener("click", () => {
+//         modal[a].style.display = "none"
+//     })
 
-    window.addEventListener("click", (e) => {
-        if (e.target == modal[a]) {
-            modal[a].style.display = "none"
-        }
-    })
-}
+//     window.addEventListener("click", (e) => {
+//         if (e.target == modal[a]) {
+//             modal[a].style.display = "none"
+//         }
+//     })
+// }
 
 for (let i = 0; i < extraInfo.length; i++) {
     extraInfo[i]

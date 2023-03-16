@@ -160,11 +160,27 @@
                                 <% if (player.hasInformation) { %>
                                     <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
 
+                                    <!-- Form fetch data per player -->
+
+                                    <form action="/" method="get" name="player-extra-info-form" class="player-extra-info-form">
+                                        <input type="number" name="playerId" hidden value="<%- player.playerId %>">
+                                        <input type="submit" value="I">
+                                    </form>
+
                                     <!-- Modal with extra info -->
+                                    
                                     <div class="modal" id="modal<%- player.playerId %>">
                                         <div class="modal-content">
                                             <span class="close">&times;</span>
+                                            <!-- loop through player.information -->
                                             <p><%- player.name %></p>
+                                            <% if (typeof parsedPlayerData !== 'undefined') { %>
+                                                <% parsedPlayerData.forEach(playerInfo => { %>
+                                                    <p><strong><%- playerInfo.title %></strong> - <%- playerInfo.content %></p>
+                                                <% }) %>
+                                            <% }else{ %>
+                                                <p>No information available</p>
+                                            <% } %>
                                         </div>
                                     </div>
 
@@ -254,11 +270,27 @@
                                 <% if (player.hasInformation) { %>
                                     <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
 
+                                    <!-- Form fetch data per player -->
+
+                                    <form action="/" method="get" name="player-extra-info-form" class="player-extra-info-form">
+                                        <input type="number" name="playerId" hidden value="<%- player.playerId %>">
+                                        <input type="submit" value="I">
+                                    </form>
+
                                     <!-- Modal with extra info -->
+                                    
                                     <div class="modal" id="modal<%- player.playerId %>">
                                         <div class="modal-content">
                                             <span class="close">&times;</span>
+                                            <!-- loop through player.information -->
                                             <p><%- player.name %></p>
+                                            <% if (typeof parsedPlayerData !== 'undefined') { %>
+                                                <% parsedPlayerData.forEach(playerInfo => { %>
+                                                    <p><strong><%- playerInfo.title %></strong> - <%- playerInfo.content %></p>
+                                                <% }) %>
+                                            <% }else{ %>
+                                                <p>No information available</p>
+                                            <% } %>
                                         </div>
                                     </div>
 
@@ -272,11 +304,27 @@
                                 <% if (player.hasInformation) { %>
                                     <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
 
+                                    <!-- Form fetch data per player -->
+
+                                    <form action="/" method="get" name="player-extra-info-form" class="player-extra-info-form">
+                                        <input type="number" name="playerId" hidden value="<%- player.playerId %>">
+                                        <input type="submit" value="I">
+                                    </form>
+
                                     <!-- Modal with extra info -->
+                                    
                                     <div class="modal" id="modal<%- player.playerId %>">
                                         <div class="modal-content">
                                             <span class="close">&times;</span>
+                                            <!-- loop through player.information -->
                                             <p><%- player.name %></p>
+                                            <% if (typeof parsedPlayerData !== 'undefined') { %>
+                                                <% parsedPlayerData.forEach(playerInfo => { %>
+                                                    <p><strong><%- playerInfo.title %></strong> - <%- playerInfo.content %></p>
+                                                <% }) %>
+                                            <% }else{ %>
+                                                <p>No information available</p>
+                                            <% } %>
                                         </div>
                                     </div>
 
