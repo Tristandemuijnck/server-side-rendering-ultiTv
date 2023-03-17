@@ -449,6 +449,10 @@ main{
     color: black;
 }
 
+.reduced-opacity{
+    opacity: 0.3;
+}
+
 @media (min-width: 48rem){
     main{
         display: grid;

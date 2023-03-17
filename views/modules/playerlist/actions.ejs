@@ -1,0 +1,21 @@
+<% 
+let goal =  parsedStats.scoredPoints.filter(sp => sp.scoredBy === player.playerId).length 
+let assist = parsedStats.scoredPoints.filter(sp => sp.assistBy === player.playerId).length
+
+let block = parsedStats.scoredPoints.reduce((count, sp) => {
+    return (sp.blockPlayers ? count = count + sp.blockPlayers.filter(bp => bp === player.playerId).length : count = 0)
+}, 0);
+
+let turnover = parsedStats.scoredPoints.reduce((count, sp) => {
+    return (sp.turnoverPlayers ? count = count + sp.turnoverPlayers.filter(tp => tp === player.playerId).length : count = 0)
+}, 0);
+
+const actions = ["goal", "assist", "block", "turnover"] 
+
+actions.forEach(action => {
+    if (eval(action) > 0) { %>
+        <p class="<%- action %>"><%- eval(action) %></p>
+    <% } else { %>
+        <p class="<%- action %> reduced-opacity"><%- eval(action) %></p>
+    <% }
+}) %>

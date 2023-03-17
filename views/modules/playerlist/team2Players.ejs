@@ -1,0 +1,52 @@
+<!-- Stats per player team two -->
+<section class="team-players">
+    <h2 class="team-name-heading reverse"><%- data.team2Name %></h2>
+
+    <!-- Individual player card -->
+    <% data.team2Players.forEach(player => { %>
+        <div class="player-card flex-reversed">
+            <!-- Left side of card -->
+            <div class="jersey-num gender-<%- player.gender %> num-reversed">
+                <p><%- player.jerseyNumber %></p>
+            </div>
+        
+            <!-- Right side of card -->
+            <div class="player-stats flex-reversed">
+                <% if (player.pronounced !== null) { %>
+                    <div class="player-name-container player-name-container-reversed">
+                        <% if (player.hasInformation) { %>
+                            <div class="player-name-wrapper player-name-wrapper-reversed">
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                <!-- Form fetch data per player & modal with extra information -->
+                                <%- include('./extraPlayerInfo', {player:player}) %>
+
+                            </div>
+                        <% } else { %>
+                            <p class="player-name"><%- player.name %></p>
+                        <% } %>
+                        <p class="player-pronounced"><%- player.pronounced %></p>
+                    </div>
+                <% } else{ %>
+                    <div class="player-name-container">
+                        <% if (player.hasInformation) { %>
+                            <div class="player-name-wrapper player-name-wrapper-reversed">
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                <!-- Form fetch data per player & modal with extra information -->
+                                <%- include('./extraPlayerInfo', {player:player}) %>
+
+                            </div>
+                        <% } else { %>
+                            <p class="player-name"><%- player.name %></p>
+                        <% } %>
+                    </div>
+                <% } %>
+
+                <div class="actions flex-reversed">
+                    <%- include ('./actions', {player:player, parsedStats:parsedStats}) %>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</section>

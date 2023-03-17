@@ -38,12 +38,12 @@ app.get('/', async (req, res) => {
             res.render('index', {data, parsedStats})
         }else{
             const playerId = req.query.playerId
-            console.log(playerId)
+            // console.log(playerId)
     
             const fileData = fs.readFileSync(`./public/api/facts/Player/${playerId}.json`)
             const parsedPlayerData = JSON.parse(fileData);
     
-            console.log(parsedPlayerData)
+            // console.log(parsedPlayerData)
             res.render('index', {data, parsedStats, parsedPlayerData})
         }
     } else {

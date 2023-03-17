@@ -1,0 +1,52 @@
+<!-- Stats per player team one -->
+<section class="team-players">
+    <h2 class="team-name-heading"><%- data.team1Name %></h2>
+    
+    <!-- Individual player card -->
+    <% data.team1Players.forEach(player => { %>
+        <div class="player-card">
+            <!-- Left side of card -->
+            <div class="jersey-num gender-<%- player.gender %>">
+                <p><%- player.jerseyNumber %></p>
+            </div>
+        
+            <!-- Right side of card -->
+            <div class="player-stats">
+                <% if (player.pronounced !== null) { %>
+                    <div class="player-name-container">
+                        <% if (player.hasInformation) { %>
+                            <div class="player-name-wrapper">
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                <!-- Form fetch data per player & modal with extra information -->
+                                <%- include('./extraPlayerInfo', {player:player}) %>
+
+                            </div>
+                        <% } else { %>
+                            <p class="player-name"><%- player.name %></p>
+                        <% } %>
+                        <p class="player-pronounced"><%- player.pronounced %></p>
+                    </div>
+                <% } else{ %>
+                    <div class="player-name-container">
+                        <% if (player.hasInformation) { %>
+                            <div class="player-name-wrapper">
+                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+
+                                <!-- Form fetch data per player & modal with extra information -->
+                                <%- include('./extraPlayerInfo', {player:player}) %>
+
+                            </div>                       
+                        <% } else { %>
+                            <p class="player-name"><%- player.name %></p>
+                        <% } %>
+                    </div>
+                <% } %>
+
+                <div class="actions">
+                    <%- include ('./actions', {player:player, parsedStats:parsedStats}) %>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</section>
