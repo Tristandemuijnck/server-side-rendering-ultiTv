@@ -16,7 +16,7 @@
                     <div class="player-name-container">
                         <% if (player.hasInformation) { %>
                             <div class="player-name-wrapper">
-                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+                                <p class="player-name" id="<%- player.playerId %>"><%- player.name %></p>
 
                                 <!-- Form fetch data per player & modal with extra information -->
                                 <%- include('./extraPlayerInfo', {player:player}) %>
@@ -31,7 +31,7 @@
                     <div class="player-name-container">
                         <% if (player.hasInformation) { %>
                             <div class="player-name-wrapper">
-                                <p class="player-name player-extra-info" id="<%- player.playerId %>"><%- player.name %></p>
+                                <p class="player-name" id="<%- player.playerId %>"><%- player.name %></p>
 
                                 <!-- Form fetch data per player & modal with extra information -->
                                 <%- include('./extraPlayerInfo', {player:player}) %>

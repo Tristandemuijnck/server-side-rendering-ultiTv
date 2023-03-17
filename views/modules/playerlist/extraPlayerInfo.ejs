@@ -8,13 +8,7 @@
 <div class="modal" id="modal<%- player.playerId %>">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <!-- loop through player.information -->
-        <% if (typeof parsedPlayerData !== 'undefined') { %>
-            <% parsedPlayerData.forEach(playerInfo => { %>
-                <p><strong><%- playerInfo.title %></strong> - <%- playerInfo.content %></p>
-            <% }) %>
-        <% }else{ %>
-            <p>No information available</p>
-        <% } %>
+        <p class="playerInfo"></p>
     </div>
 </div>
+

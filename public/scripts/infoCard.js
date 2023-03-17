@@ -1,46 +1,56 @@
 const extraInfo = document.getElementsByClassName("player-extra-info")
 const modal = document.getElementsByClassName("modal")
 const closeBtn = document.getElementsByClassName("close")
-
+const playerInfoP = document.getElementsByClassName("playerInfo")
 const extraInfoForm = document.getElementsByClassName("player-extra-info-form")
+const extraInfoFormPlayer = document.getElementsByName("playerId")
 
-console.log(extraInfoForm)
+for (let index = 0; index < extraInfoForm.length; index++) {
+    // Check for form submit
+    extraInfoForm[index].addEventListener("submit", async (e) => {
+        // Prevent browser from reloading
+        e.preventDefault()
+        
+        // Get player id from form
+        const playerId = extraInfoFormPlayer[index].value;
 
-// for (let a = 0; a < extraInfoForm.length; a++) {
-//     console.log(extraInfoForm[a]);
-    
-//     extraInfoForm[a].addEventListener("submit", (e) => {
-//         // e.preventDefault()
-//         modal[a].style.display = "block"
-//     })
+        // Fetch player data from JSON files
+        let data = await fetch(`../api/facts/Player/${playerId}.json`)
+        .then(res => res.json())
+        .then(data => data)
 
-//     closeBtn[a].addEventListener("click", () => {
-//         modal[a].style.display = "none"
-//     })
+        // Create empty string for player info
+        let playerInfo = ""
 
-//     window.addEventListener("click", (e) => {
-//         if (e.target == modal[a]) {
-//             modal[a].style.display = "none"
-//         }
-//     })
-// }
+        // Loop through player JSON data
+        data.forEach(player => {
+            // Create string with player info
+            let playerInfoContent = `
+                <strong>${player.title}</strong> - ${player.content}<br>
+            `
+            // Add player info to player info string
+            playerInfo += playerInfoContent
+        });
 
-for (let i = 0; i < extraInfo.length; i++) {
-    extraInfo[i]
-    const playerId = extraInfo[i].id;
-    // console.log(playerId)
+        // Add player info to modal
+        playerInfoP[index].innerHTML = playerInfo
 
-    extraInfo[i].addEventListener("click", () => {
-        modal[i].style.display = "block"
+        // Show modal with player info
+        modal[index].classList.toggle("modal-show")
+    })    
+
+    // Check for click on close button inside modal
+    closeBtn[index].addEventListener("click", () => {
+        // Close modal
+        modal[index].classList.toggle("modal-show")
     })
 
-    closeBtn[i].addEventListener("click", () => {
-        modal[i].style.display = "none"
-    })
-
+    // Check for click outside modal
     window.addEventListener("click", (e) => {
-        if (e.target == modal[i]) {
-            modal[i].style.display = "none"
+        // If an element outside of the modal is clicked
+        if (e.target == modal[index]) {
+            // Close modal
+            modal[index].classList.toggle("modal-show")
         }
     })
 }

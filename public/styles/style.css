@@ -388,6 +388,10 @@ main{
     background-color: rgba(0,0,0,0.4);
 }
 
+.modal-show{
+    display: block;
+}
+
 .modal-content{
     background: #fefefe;
     margin: 15% auto;
