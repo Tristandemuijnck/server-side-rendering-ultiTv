@@ -4,12 +4,12 @@ UltiTV commentary tool - Een tool met alle benodigde info voor het geven van com
 
 ## 🗃️ Inhoudsopgave
 
-  * [Beschrijving](#📜 Beschrijving)
-  * [Kenmerken](#🎭 Kenmerken)
-  * [Installatie](#📥 Installatie)
-  * [Gebruik](#🪚 Gebruik)
-  * [Bronnen](#📘 Bronnen)
-  * [Licentie](#🪪 Licentie)
+  * [Beschrijving](#📜Beschrijving)
+  * [Kenmerken](#🎭Kenmerken)
+  * [Installatie](#📥Installatie)
+  * [Gebruik](#🪚Gebruik)
+  * [Bronnen](#📘Bronnen)
+  * [Licentie](#🪪Licentie)
 
 ## 📜 Beschrijving
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
