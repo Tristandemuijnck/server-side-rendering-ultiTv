@@ -66,6 +66,8 @@ Deze tool is zowel lokaal te gebruiken als online. Lokaal gebruik is bedoeld voo
 
 [EJS](https://ejs.co/#docs)
 
+[Fetch API](https://www.javascripttutorial.net/javascript-fetch-api/)
+
 ## 🪪 Licentie
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
