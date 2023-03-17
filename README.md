@@ -4,7 +4,7 @@ UltiTV commentary tool - Een tool met alle benodigde info voor het geven van com
 
 ## 🗃️ Inhoudsopgave
 
-  * [Beschrijving](-beschrijving)
+  * [Beschrijving](#-beschrijving)
   * [Kenmerken](#-kenmerken)
   * [Installatie](#-installatie)
   * [Gebruik](#-gebruik)
