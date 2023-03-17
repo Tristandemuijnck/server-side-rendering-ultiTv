@@ -4,12 +4,12 @@ UltiTV commentary tool - Een tool met alle benodigde info voor het geven van com
 
 ## 🗃️ Inhoudsopgave
 
-  * [Beschrijving](#beschrijving)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Gebruik](#gebruik)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+  * [Beschrijving](#-beschrijving)
+  * [Kenmerken](#-kenmerken)
+  * [Installatie](#-installatie)
+  * [Gebruik](#-gebruik)
+  * [Bronnen](#-bronnen)
+  * [Licentie](#-licentie)
 
 ## 📜 Beschrijving
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
@@ -65,6 +65,8 @@ Deze tool is zowel lokaal te gebruiken als online. Lokaal gebruik is bedoeld voo
 [ExpressJS](https://expressjs.com/en/4x/api.html)
 
 [EJS](https://ejs.co/#docs)
+
+[Fetch API](https://www.javascripttutorial.net/javascript-fetch-api/)
 
 ## 🪪 Licentie
 
